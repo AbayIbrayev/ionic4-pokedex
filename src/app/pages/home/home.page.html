@@ -2,9 +2,33 @@
   <ion-toolbar color="primary">
     <ion-title>Pokedex</ion-title>
   </ion-toolbar>
+  <ion-toolbar color="primary">
+    <ion-searchbar placeholder="Search a Pokemon" (ionChange)="onSearchChange($event)"></ion-searchbar>
+  </ion-toolbar>
 </ion-header>
 
 <ion-content>
+
+
+  <!-- creates a skeleton list before the search completes -->
+
+  <ion-list *ngIf="pokemon.length == 0" lines="full">
+    <ion-item *ngFor="let i of [1,2,3,4,5]">
+      <ion-avatar slot="start">
+        <ion-skeleton-text animated></ion-skeleton-text>
+      </ion-avatar>
+      <ion-label class="ion-text-capitalize">
+        <h2>
+          <ion-skeleton-text animated style="width: 50%"></ion-skeleton-text>
+        </h2>
+        <p>
+          <ion-skeleton-text animated style="width: 20%"></ion-skeleton-text>
+        </p>
+      </ion-label>
+    </ion-item>
+  </ion-list>
+
+
   <ion-list lines="full">
     <ion-item *ngFor="let poke of pokemon;" [routerLink]="poke.pokeIndex">
       <ion-avatar slot="start">
@@ -12,7 +36,7 @@
       </ion-avatar>
       <ion-label class="ion-text-capitalize">
         <h2 class="">{{ poke.name }}</h2>
-        <p class=""># {{ poke.pokeIndex }}</p>
+        <p class="">Poke Index: {{ poke.pokeIndex }}</p>
       </ion-label>
     </ion-item>
   </ion-list>
