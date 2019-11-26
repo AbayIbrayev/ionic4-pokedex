@@ -1,2 +1,2 @@
 # ionic4-pokedex
-ionic 4 app using PokéAPI The RESTful Pokémon API 
+ionic 4 app using PokéAPI The RESTful Pokémon API https://pokeapi.co/
