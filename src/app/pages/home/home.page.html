@@ -1,0 +1,26 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>Pokedex</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list lines="full">
+    <ion-item *ngFor="let poke of pokemon;" [routerLink]="poke.pokeIndex">
+      <ion-avatar slot="start">
+        <img [src]="poke.image" style="background: #f2f2f2;">
+      </ion-avatar>
+      <ion-label class="ion-text-capitalize">
+        <h2 class="">{{ poke.name }}</h2>
+        <p class=""># {{ poke.pokeIndex }}</p>
+      </ion-label>
+    </ion-item>
+  </ion-list>
+
+<!-- ion-infinite-scroll -->
+
+  <ion-infinite-scroll (ionInfinite)="loadPokemon(true, $event)">
+    <ion-infinite-scroll-content loadingSpinner="bubbles" loadingText="Loading more Pokemon...">
+    </ion-infinite-scroll-content>
+  </ion-infinite-scroll>
+</ion-content>
