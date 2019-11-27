@@ -1,14 +1,25 @@
 <ion-header>
   <ion-toolbar color="primary">
-    <ion-title>Pokedex</ion-title>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Pokédex</ion-title>
   </ion-toolbar>
   <ion-toolbar color="primary">
-    <ion-searchbar placeholder="Search a Pokemon" (ionChange)="onSearchChange($event)"></ion-searchbar>
+    <ion-searchbar placeholder="Search a Pokemon" (ionChange)="onSearchChange($event)" color="light"></ion-searchbar>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
 
+  <!-- refresher -->
+
+  <ion-refresher slot="fixed" (ionRefresh)="ionRefresh($event)" (ionPull)="ionPull($event)"
+    (ionStart)="ionStart($event)" >
+    <ion-refresher-content pullingIcon="arrow-dropdown" pullingText="Pull to refresh" refreshingSpinner="circles"
+      refreshingText="Refreshing...">
+    </ion-refresher-content>
+  </ion-refresher>
 
   <!-- creates a skeleton list before the search completes -->
 

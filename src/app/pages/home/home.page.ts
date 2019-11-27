@@ -49,4 +49,25 @@ export class HomePage implements OnInit {
         this.pokemon = [];
       });
   }
+
+  ionRefresh(event) {
+    console.log('Pull Event Triggered!');
+    setTimeout(() => {
+      console.log('Async operation has ended');
+      this.reload();
+      //complete()  signify that the refreshing has completed and to close the refresher
+      event.target.complete();
+    }, 500);
+  }
+  ionPull(event) {
+    //Emitted while the user is pulling down the content and exposing the refresher.
+    
+  }
+  ionStart(event) {
+    //Emitted when the user begins to start pulling down.    
+  }
+  
+  reload() {
+    window.location.reload();
+  }
 }
