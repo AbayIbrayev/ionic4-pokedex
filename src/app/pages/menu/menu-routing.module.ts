@@ -15,7 +15,8 @@ const routes: Routes = [
   },
   {
     path: '',
-    redirectTo: '/menu/home'
+    redirectTo: '/menu/home',
+    pathMatch: 'full'
   }
 ];
 
